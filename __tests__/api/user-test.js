@@ -27,24 +27,24 @@ it("should return 404 status when the user is not found when patching", () => {
 
 it("should return 200 status when updating a user successfully", () => {
 	return frisby
-	    .fetch('http://localhost:8000/users/2', {
+	    .fetch('http://localhost:8000/users/1', {
 	      method: 'PATCH',
 	      body: JSON.stringify({
-	        name: 'Test changed name',
+	        name: 'Test changed name1',
 	        pw: 'ok123456'
 	      })
 	    })
-	    .expect('json', 'UserId', '2', 'UserName', 'Test changed name')
+	    .expect('json', 'UserName', 'Test changed name1')
 	    .expect('status', 200);
 });
 
 it("should create a user", () => {
 	return frisby
 		.post('http://localhost:8000/api/users', {
-			name: 'Test create name2',
+			name: 'Test create name3',
 			pw: 'testpassword'
 		})
-		.expect('json', 'UserName', 'Test create name2')
+		.expect('json', 'UserName', 'Test create name3')
 		.expect('status', 200);
 });
 
@@ -66,7 +66,7 @@ it("should return 404 when delete user does not exist", () => {
 
 it("should return 204 when delete user exists", () => {
 	return frisby
-		.del("http://localhost:8000/api/users/2")
+		.del("http://localhost:8000/api/users/6")
 		.expect('status', 204);
 });
 
