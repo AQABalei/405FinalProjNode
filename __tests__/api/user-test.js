@@ -41,10 +41,10 @@ it("should return 200 status when updating a user successfully", () => {
 it("should create a user", () => {
 	return frisby
 		.post('http://localhost:8000/api/users', {
-			name: 'Test create name3',
+			name: 'Test create name4',
 			pw: 'testpassword'
 		})
-		.expect('json', 'UserName', 'Test create name3')
+		.expect('json', 'UserName', 'Test create name4')
 		.expect('status', 200);
 });
 
@@ -66,7 +66,7 @@ it("should return 404 when delete user does not exist", () => {
 
 it("should return 204 when delete user exists", () => {
 	return frisby
-		.del("http://localhost:8000/api/users/6")
+		.del("http://localhost:8000/api/users/7")
 		.expect('status', 204);
 });
 
