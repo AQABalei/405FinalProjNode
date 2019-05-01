@@ -13,6 +13,12 @@ it("should return 200 status when the user is found", () => {
 		.expect('status', 200)
 });
 
+it("should return 200 status when users are found", () => {
+	return frisby
+		.get("http://localhost:8000/api/users")
+		.expect('status', 200)
+});
+
 it("should return 404 status when the user is not found when patching", () => {
 	return frisby
 		.patch("http://localhost:8000/tracks/-1")
@@ -35,10 +41,10 @@ it("should return 200 status when updating a user successfully", () => {
 it("should create a user", () => {
 	return frisby
 		.post('http://localhost:8000/api/users', {
-			name: 'Test create na',
+			name: 'Test create name2',
 			pw: 'testpassword'
 		})
-		.expect('json', 'UserName', 'Test create na')
+		.expect('json', 'UserName', 'Test create name2')
 		.expect('status', 200);
 });
 
@@ -58,7 +64,7 @@ it("should return 404 when delete user does not exist", () => {
 		.expect('status', 404);
 });
 
-it("should return 404 when delete user does not exist", () => {
+it("should return 204 when delete user exists", () => {
 	return frisby
 		.del("http://localhost:8000/api/users/2")
 		.expect('status', 204);
