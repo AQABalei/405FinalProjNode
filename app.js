@@ -47,7 +47,7 @@ app.patch('/users/:id', function(request, response) {
 });
 
 app.delete('/api/users/:id', function(request, response){
-	let {id} = request.params;
+	let { id } = request.params;
 	User
 		.findByPk(id)
 		.then((user) => {
@@ -86,7 +86,7 @@ app.post('/api/users', function(request, response){
 	});
 });
 
-åapp.get('/api/users', function(request, response){
+app.get('/api/users', function(request, response){
 	let filter = {};
 	let { q } = request.query;
 	if(q){
